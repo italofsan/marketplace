@@ -1,9 +1,9 @@
-import { View, Text } from 'react-native'
+import { useRegisterViewModel } from '../viewModels/Register/useRegister.viewModel'
+
+import { RegisterView } from '../viewModels/Register/Register.view'
 
 export default function Register() {
-  return (
-    <View className='flex-1 items-center justify-center'>
-      <Text>Registro</Text>
-    </View>
-  )
+  const props = useRegisterViewModel()
+
+  return <RegisterView {...props} />
 }
