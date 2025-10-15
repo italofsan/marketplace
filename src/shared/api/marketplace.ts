@@ -6,7 +6,7 @@ export class MarketplaceApiClient {
 
   constructor() {
     this.instance = axios.create({
-      baseURL: '',
+      baseURL: 'http://localhost:3001',
     })
   }
 
