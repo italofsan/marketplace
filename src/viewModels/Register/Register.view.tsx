@@ -17,7 +17,7 @@ export const RegisterView = ({
         onChangeText={setEmail}
         error='E-mail inválido'
       />
-      <AppInput leftIcon='lock-closed-outline' label='Senha' />
+      <AppInput leftIcon='lock-closed-outline' label='Senha' secureTextEntry />
       <TouchableOpacity onPress={onSubmit}>
         <Text>Registrar</Text>
       </TouchableOpacity>

@@ -44,6 +44,7 @@ export const AppInput = ({
     handleBlur,
     handleTextChange,
     isFocused,
+    showPassword,
   } = useAppInputViewModel({
     error,
     onBlur,
@@ -75,12 +76,18 @@ export const AppInput = ({
           onChangeText={handleTextChange}
           className={styles.input()}
           value={value}
+          secureTextEntry={showPassword}
           {...rest}
         />
 
-        <TouchableOpacity>
-          <Ionicons name='eye-off-outline' size={22} />
-        </TouchableOpacity>
+        {secureTextEntry && (
+          <TouchableOpacity activeOpacity={0.7} onPress={handlePasswordToggle}>
+            <Ionicons
+              size={22}
+              name={showPassword ? 'eye-outline' : 'eye-off-outline'}
+            />
+          </TouchableOpacity>
+        )}
       </Pressable>
 
       {error && (
