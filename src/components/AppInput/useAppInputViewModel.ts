@@ -6,7 +6,7 @@ import { colors } from '../../styles/colors'
 interface AppInputViewModelProps {
   isError?: boolean
   isDisable?: boolean
-  error?: string
+
   secureTextEntry?: boolean
   onFocus?: (event: FocusEvent) => void
   onBlur?: (event: BlurEvent) => void
@@ -18,7 +18,7 @@ interface AppInputViewModelProps {
 export const useAppInputViewModel = ({
   isError,
   isDisable,
-  error,
+
   secureTextEntry,
   onFocus,
   onBlur,
@@ -26,8 +26,8 @@ export const useAppInputViewModel = ({
   onChangeText,
   value,
 }: AppInputViewModelProps) => {
-  const [showPassword, setShowPassword] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
+  const [showPassword, setShowPassword] = useState(secureTextEntry)
 
   const inputRef = useRef<TextInput>(null)
 

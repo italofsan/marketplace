@@ -46,7 +46,6 @@ export const AppInput = ({
     isFocused,
     showPassword,
   } = useAppInputViewModel({
-    error,
     onBlur,
     onFocus,
     isError: !!error,
@@ -56,7 +55,7 @@ export const AppInput = ({
     secureTextEntry,
     value,
   })
-  const styles = appInputVariants({ isFocused })
+  const styles = appInputVariants({ isFocused, isDisable, isError: !!error })
 
   return (
     <View className={styles.container({ className: containerClassName })}>
