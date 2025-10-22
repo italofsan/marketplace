@@ -1,7 +1,8 @@
 export interface UserInterface {
+  id: number
   name: string
   email: string
-  password: string
-  //   avatarUrl: string
-  //   phone: string
+  avatarUrl: string
+  phone: string
+  createdAt: string
 }

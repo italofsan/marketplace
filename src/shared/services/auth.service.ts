@@ -1,11 +1,11 @@
+import { marketPlaceApiClient } from '../api/marketplace'
 import {
   RegisterHttpParams,
   RegisterHttpResponse,
 } from '../interfaces/http/register'
-import { marketplaceApiClient } from '../api/marketplace'
 
 export const register = async (userData: RegisterHttpParams) => {
-  const { data } = await marketplaceApiClient.post<RegisterHttpResponse>(
+  const { data } = await marketPlaceApiClient.post<RegisterHttpResponse>(
     '/auth/register',
     userData
   )

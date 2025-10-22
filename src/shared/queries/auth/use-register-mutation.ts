@@ -1,11 +1,10 @@
 import { useMutation } from '@tanstack/react-query'
-import * as authService from '../../services/auths.service'
 import { RegisterHttpParams } from '../../interfaces/http/register'
+import { register } from '../../services/auth.service'
 
 export const useRegisterMutation = () => {
   const mutation = useMutation({
-    mutationFn: (userData: RegisterHttpParams) =>
-      authService.register(userData),
+    mutationFn: (userData: RegisterHttpParams) => register(userData),
     onSuccess: (response) => {
       console.log(response)
     },

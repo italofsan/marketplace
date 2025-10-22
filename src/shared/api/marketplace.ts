@@ -1,16 +1,16 @@
 import axios, { AxiosInstance } from 'axios'
 import { Platform } from 'react-native'
 
-const getBaseUrl = () => {
+const getBaseURL = () => {
   return Platform.select({
     ios: 'http://localhost:3001',
     android: 'http://10.0.2.2:3001',
   })
 }
 
-const baseURL = getBaseUrl()
+const baseURL = getBaseURL()
 
-export class MarketplaceApiClient {
+export class MarketPlaceApiClient {
   private instance: AxiosInstance
   private isRefreshing = false
 
@@ -25,4 +25,4 @@ export class MarketplaceApiClient {
   }
 }
 
-export const marketplaceApiClient = new MarketplaceApiClient().getInstance()
+export const marketPlaceApiClient = new MarketPlaceApiClient().getInstance()
