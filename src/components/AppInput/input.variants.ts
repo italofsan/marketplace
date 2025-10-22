@@ -1,6 +1,6 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
-export const appInputVarants = tv({
+export const appInputVariants = tv({
   slots: {
     container: 'w-full my-4',
     wrapper: 'flex-row items-center border-b border-gray-200 pb-2',
@@ -10,7 +10,10 @@ export const appInputVarants = tv({
   },
   variants: {
     isFocused: {
-      true: {},
+      true: {
+        wrapper: 'border-purple-base',
+        label: 'text-purple-base',
+      },
     },
     isError: {
       true: {},
@@ -26,4 +29,4 @@ export const appInputVarants = tv({
   },
 })
 
-export type AppInputVariants = VariantProps<typeof appInputVarants>
+export type AppInputVariants = VariantProps<typeof appInputVariants>
