@@ -15,6 +15,7 @@ export const RegisterView = ({
         label='E-mail'
         value={email}
         onChangeText={setEmail}
+        error='E-mail inválido'
       />
       <AppInput leftIcon='lock-closed-outline' label='Senha' />
       <TouchableOpacity onPress={onSubmit}>
