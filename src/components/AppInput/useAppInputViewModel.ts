@@ -18,7 +18,6 @@ interface AppInputViewModelProps {
 export const useAppInputViewModel = ({
   isError,
   isDisable,
-
   secureTextEntry,
   onFocus,
   onBlur,
@@ -60,8 +59,8 @@ export const useAppInputViewModel = ({
   }
 
   const getIconColor = () => {
-    if (isFocused) return colors['purple-base']
     if (isError) return colors.danger
+    if (isFocused) return colors['purple-base']
     if (value) return colors['purple-base']
     return colors.gray[200]
   }
