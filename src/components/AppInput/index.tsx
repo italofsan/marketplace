@@ -33,7 +33,7 @@ export const AppInput = ({
   onChangeText,
   error,
   mask,
-  isDisable,
+  isDisabled,
   ...rest
 }: AppInputProps) => {
   const {
@@ -51,11 +51,11 @@ export const AppInput = ({
     isError: !!error,
     mask,
     onChangeText,
-    isDisable,
+    isDisabled,
     secureTextEntry,
     value,
   })
-  const styles = appInputVariants({ isFocused, isDisable, isError: !!error })
+  const styles = appInputVariants({ isFocused, isDisabled, isError: !!error })
 
   return (
     <View className={styles.container({ className: containerClassName })}>

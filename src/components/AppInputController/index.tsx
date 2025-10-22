@@ -34,7 +34,7 @@ export const AppInputController = <T extends FieldValues>({
           onChangeText={onChange}
           value={value}
           error={error?.message}
-          isDisable={isSubmitting || rest.isDisable}
+          isDisabled={isSubmitting || rest.isDisabled}
           {...rest}
         />
       )}

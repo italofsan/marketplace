@@ -5,7 +5,7 @@ import { colors } from '../../styles/colors'
 
 interface AppInputViewModelProps {
   isError?: boolean
-  isDisable?: boolean
+  isDisabled?: boolean
 
   secureTextEntry?: boolean
   onFocus?: (event: FocusEvent) => void
@@ -17,7 +17,7 @@ interface AppInputViewModelProps {
 
 export const useAppInputViewModel = ({
   isError,
-  isDisable,
+  isDisabled,
   secureTextEntry,
   onFocus,
   onBlur,

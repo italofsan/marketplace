@@ -21,7 +21,7 @@ export const appInputVariants = tv({
         label: 'text-danger',
       },
     },
-    isDisable: {
+    isDisabled: {
       true: {
         wrapper: 'opacity-50',
         input: 'text-gray-300',
@@ -31,7 +31,7 @@ export const appInputVariants = tv({
   defaultVariants: {
     isFocused: false,
     isError: false,
-    isDisable: false,
+    isDisabled: false,
   },
 })
 
