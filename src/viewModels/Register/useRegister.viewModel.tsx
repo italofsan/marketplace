@@ -28,11 +28,13 @@ export const useRegisterViewModel = () => {
 
   const onSubmit = handleSubmit(async (userData) => {
     const { confirmPassword, ...registerData } = userData
-    console.log(registerData)
+    // console.log(registerData)
 
     const mutationResponse = await userRegisterMutation.mutateAsync(
       registerData
     )
+
+    console.log(mutationResponse)
 
     setSession({
       refreshToken: mutationResponse.refreshToken,
@@ -41,7 +43,7 @@ export const useRegisterViewModel = () => {
     })
   })
 
-  console.log(user)
+  // console.log(user)
 
   return { control, onSubmit, errors }
 }
