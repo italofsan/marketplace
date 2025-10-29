@@ -6,6 +6,7 @@ import { KeyboardContainer } from '../../shared/components/ContainerKeyboard'
 import { AuthFormHeader } from '../../shared/components/AuthFormHeader'
 
 import { useLoginViewModel } from './useLogin.viewModel'
+import { AppButton } from '../../shared/components/AppButton'
 
 export const LoginView = ({
   control,
@@ -39,6 +40,8 @@ export const LoginView = ({
         <TouchableOpacity onPress={onSubmit}>
           <Text>Login</Text>
         </TouchableOpacity>
+
+        <AppButton />
 
         <TouchableOpacity onPress={() => router.push('/register')}>
           <Text>Registro</Text>
