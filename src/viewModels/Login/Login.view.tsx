@@ -41,7 +41,13 @@ export const LoginView = ({
           <Text>Login</Text>
         </TouchableOpacity>
 
-        <AppButton>Teste</AppButton>
+        <AppButton
+          variant='outlined'
+          rightIcon='arrow-forward'
+          onPress={() => alert('TESTE')}
+        >
+          Teste
+        </AppButton>
 
         <TouchableOpacity onPress={() => router.push('/register')}>
           <Text>Registro</Text>
