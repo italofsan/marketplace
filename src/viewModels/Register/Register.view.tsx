@@ -23,6 +23,7 @@ export const RegisterView = ({
           label='NOME'
           control={control}
           name='name'
+          placeholder='Seu nome completo'
         />
 
         <AppInputController
@@ -30,12 +31,14 @@ export const RegisterView = ({
           label='TELEFONE'
           control={control}
           name='phone'
+          placeholder='(00) 00000-0000'
         />
         <AppInputController
           leftIcon='mail-outline'
           label='E-MAIL'
           control={control}
           name='email'
+          placeholder='mail@example.com.br'
         />
 
         <AppInputController
@@ -43,6 +46,7 @@ export const RegisterView = ({
           label='SENHA'
           control={control}
           name='password'
+          placeholder='Sua senha'
           secureTextEntry
         />
 
@@ -51,6 +55,7 @@ export const RegisterView = ({
           label='CONFIRMAR SENHA'
           control={control}
           name='confirmPassword'
+          placeholder='Confirme sua senha'
           secureTextEntry
         />
 
