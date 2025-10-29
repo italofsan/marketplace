@@ -1,13 +1,17 @@
+import { Ionicons } from '@expo/vector-icons'
 import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native'
 import { ButtonVariants, buttonVariants } from './button.variants'
 
-interface AppButtonProps extends TouchableOpacityProps, ButtonVariants {}
+interface AppButtonProps extends TouchableOpacityProps, ButtonVariants {
+  leftIcon?: keyof typeof Ionicons.glyphMap
+  children: string
+}
 
-export const AppButton = ({ ...rest }: AppButtonProps) => {
+export const AppButton = ({ leftIcon, children, ...rest }: AppButtonProps) => {
   const styles = buttonVariants()
   return (
     <TouchableOpacity className={styles.base()} {...rest}>
-      <Text>Teste</Text>
+      <Text>{children}</Text>
     </TouchableOpacity>
   )
 }

@@ -4,9 +4,9 @@ import { Text, TouchableOpacity, View } from 'react-native'
 import { AppInputController } from '../../shared/components/AppInputController'
 import { KeyboardContainer } from '../../shared/components/ContainerKeyboard'
 import { AuthFormHeader } from '../../shared/components/AuthFormHeader'
+import { AppButton } from '../../shared/components/AppButton'
 
 import { useLoginViewModel } from './useLogin.viewModel'
-import { AppButton } from '../../shared/components/AppButton'
 
 export const LoginView = ({
   control,
@@ -41,7 +41,7 @@ export const LoginView = ({
           <Text>Login</Text>
         </TouchableOpacity>
 
-        <AppButton />
+        <AppButton>Teste</AppButton>
 
         <TouchableOpacity onPress={() => router.push('/register')}>
           <Text>Registro</Text>
