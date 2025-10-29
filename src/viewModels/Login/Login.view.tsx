@@ -9,6 +9,7 @@ import { useLoginViewModel } from './useLogin.viewModel'
 
 export const LoginView = ({
   control,
+  onSubmit,
 }: ReturnType<typeof useLoginViewModel>) => {
   return (
     <KeyboardContainer>
@@ -34,6 +35,10 @@ export const LoginView = ({
           placeholder='Sua senha'
           secureTextEntry
         />
+
+        <TouchableOpacity onPress={onSubmit}>
+          <Text>Login</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={() => router.push('/register')}>
           <Text>Registro</Text>
