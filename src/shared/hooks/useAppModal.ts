@@ -1,9 +1,15 @@
-import { Ionicons } from '@expo/vector-icons'
 import { createElement } from 'react'
-import { SelectionModal } from '../components/Modals/SelectionModal'
+
+import { Ionicons } from '@expo/vector-icons'
+
 import { useModalStore } from '../store/modal-store'
 
-interface SelectionOptions {
+import {
+  SelectionModal,
+  SelectionModalProps,
+} from '../components/Modals/SelectionModal'
+
+export interface SelectionOptions {
   text: string
   onPress: () => void
   icon?: keyof typeof Ionicons.glyphMap
@@ -13,13 +19,22 @@ interface SelectionOptions {
 export const useAppModal = () => {
   const { open, close } = useModalStore()
 
-  const showSelection = (config: {
+  const showSelection = ({
+    title,
+    message,
+    options,
+  }: {
     title: string
     message?: string
     options: SelectionOptions[]
   }) => {
-    open(createElement(SelectionModal))
-
-    return { showSelection }
+    open(
+      createElement(SelectionModal, {
+        title,
+        message,
+        options,
+      } as SelectionModalProps)
+    )
   }
+  return { showSelection }
 }

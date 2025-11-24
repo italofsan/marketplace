@@ -1,5 +1,7 @@
-import { ScrollView, Text, View } from 'react-native'
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { router } from 'expo-router'
+
+import { Ionicons } from '@expo/vector-icons'
 
 import { AppInputController } from '../../shared/components/AppInputController'
 import { KeyboardContainer } from '../../shared/components/ContainerKeyboard'
@@ -11,6 +13,7 @@ import { useRegisterViewModel } from './useRegister.viewModel'
 export const RegisterView = ({
   onSubmit,
   control,
+  handleSelectAvatar,
 }: ReturnType<typeof useRegisterViewModel>) => {
   return (
     <KeyboardContainer>
@@ -19,6 +22,9 @@ export const RegisterView = ({
           title='Crie sua conta'
           subTitle='Informe seus dados pessoais e de acesso'
         />
+        <TouchableOpacity onPress={handleSelectAvatar}>
+          <Ionicons name='cloud-upload-outline' size={32} />
+        </TouchableOpacity>
         <AppInputController
           leftIcon='person-outline'
           label='NOME'
