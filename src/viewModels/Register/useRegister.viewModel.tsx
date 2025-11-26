@@ -11,6 +11,7 @@ import { useUserStore } from '../../shared/store/userStore'
 
 import { RegisterFormData, registerScheme } from './register.scheme'
 import { useImage } from '../../shared/hooks/useImage'
+import { CameraType } from 'expo-image-picker'
 
 export const useRegisterViewModel = () => {
   const userRegisterMutation = useRegisterMutation()
@@ -20,6 +21,7 @@ export const useRegisterViewModel = () => {
 
   const { handleSelectImage } = useImage({
     callback: setAvatarUri,
+    // cameraType: CameraType.front,
   })
 
   const handleSelectAvatar = () => {
