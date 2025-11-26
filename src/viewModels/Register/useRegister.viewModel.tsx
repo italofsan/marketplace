@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useAppModal } from '../../shared/hooks/useAppModal'
+import { useGallery } from '../../shared/hooks/useGallery'
 import { useCamera } from '../../shared/hooks/useCamera'
 
 import { useRegisterMutation } from '../../shared/queries/auth/use-register-mutation'
@@ -16,6 +17,7 @@ export const useRegisterViewModel = () => {
 
   const modals = useAppModal()
   const { openCamera } = useCamera({})
+  const { openGallery } = useGallery({})
 
   const handleSelectAvatar = () => {
     modals.showSelection({
@@ -26,7 +28,7 @@ export const useRegisterViewModel = () => {
           text: 'Galeria',
           icon: 'images',
           variant: 'primary',
-          onPress: () => alert('Galeria'),
+          onPress: openGallery,
         },
         {
           text: 'Câmera',
