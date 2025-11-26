@@ -8,15 +8,14 @@ import { useGallery } from '../../shared/hooks/useGallery'
 import { useCamera } from '../../shared/hooks/useCamera'
 import { useImage } from '../../shared/hooks/useImage'
 
-import { useRegisterMutation } from '../../shared/queries/auth/use-register-mutation'
+import { useUploadAvatarMutation } from '../../shared/queries/auth/use-upload-avatar.mutation'
+import { useRegisterMutation } from '../../shared/queries/auth/use-register.mutation'
 import { useUserStore } from '../../shared/store/userStore'
 
 import { RegisterFormData, registerScheme } from './register.scheme'
 
 export const useRegisterViewModel = () => {
-  const userRegisterMutation = useRegisterMutation()
-
-  const { setSession } = useUserStore()
+  const { updateUser } = useUserStore()
   const [avatarUri, setAvatarUri] = useState<string | null>(null)
 
   const { handleSelectImage } = useImage({
@@ -43,21 +42,24 @@ export const useRegisterViewModel = () => {
     },
   })
 
+  const uploadAvatarMutation = useUploadAvatarMutation()
+
+  const userRegisterMutation = useRegisterMutation({
+    onSuccess: async () => {
+      if (avatarUri) {
+        const { url } = await uploadAvatarMutation.mutateAsync(avatarUri)
+        console.log({ url })
+
+        updateUser({ avatarUrl: url })
+      }
+    },
+  })
+
   const onSubmit = handleSubmit(async (userData) => {
     const { confirmPassword, ...registerData } = userData
     // console.log(registerData)
 
-    const mutationResponse = await userRegisterMutation.mutateAsync(
-      registerData
-    )
-
-    console.log(mutationResponse)
-
-    setSession({
-      refreshToken: mutationResponse.refreshToken,
-      token: mutationResponse.token,
-      user: mutationResponse.user,
-    })
+    await userRegisterMutation.mutateAsync(registerData)
   })
 
   // console.log(user)
