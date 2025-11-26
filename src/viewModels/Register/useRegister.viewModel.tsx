@@ -1,17 +1,17 @@
 import { useState } from 'react'
+import { CameraType } from 'expo-image-picker'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useAppModal } from '../../shared/hooks/useAppModal'
 import { useGallery } from '../../shared/hooks/useGallery'
 import { useCamera } from '../../shared/hooks/useCamera'
+import { useImage } from '../../shared/hooks/useImage'
 
 import { useRegisterMutation } from '../../shared/queries/auth/use-register-mutation'
 import { useUserStore } from '../../shared/store/userStore'
 
 import { RegisterFormData, registerScheme } from './register.scheme'
-import { useImage } from '../../shared/hooks/useImage'
-import { CameraType } from 'expo-image-picker'
 
 export const useRegisterViewModel = () => {
   const userRegisterMutation = useRegisterMutation()
@@ -21,7 +21,7 @@ export const useRegisterViewModel = () => {
 
   const { handleSelectImage } = useImage({
     callback: setAvatarUri,
-    // cameraType: CameraType.front,
+    cameraType: CameraType.front,
   })
 
   const handleSelectAvatar = () => {
