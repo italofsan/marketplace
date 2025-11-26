@@ -1,11 +1,13 @@
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
+import { useAppModal } from '../../shared/hooks/useAppModal'
+import { useCamera } from '../../shared/hooks/useCamera'
+
 import { useRegisterMutation } from '../../shared/queries/auth/use-register-mutation'
 import { useUserStore } from '../../shared/store/userStore'
 
 import { RegisterFormData, registerScheme } from './register.scheme'
-import { useAppModal } from '../../shared/hooks/useAppModal'
 
 export const useRegisterViewModel = () => {
   const userRegisterMutation = useRegisterMutation()
@@ -13,6 +15,7 @@ export const useRegisterViewModel = () => {
   const { setSession, user } = useUserStore()
 
   const modals = useAppModal()
+  const { openCamera } = useCamera({})
 
   const handleSelectAvatar = () => {
     modals.showSelection({
@@ -29,7 +32,7 @@ export const useRegisterViewModel = () => {
           text: 'Câmera',
           icon: 'camera',
           variant: 'primary',
-          onPress: () => alert('Câmera'),
+          onPress: openCamera,
         },
       ],
     })
