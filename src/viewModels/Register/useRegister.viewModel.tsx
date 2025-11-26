@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CameraType } from 'expo-image-picker'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -13,6 +13,7 @@ import { useRegisterMutation } from '../../shared/queries/auth/use-register.muta
 import { useUserStore } from '../../shared/store/userStore'
 
 import { RegisterFormData, registerScheme } from './register.scheme'
+import axios from 'axios'
 
 export const useRegisterViewModel = () => {
   const { updateUser } = useUserStore()
@@ -63,6 +64,13 @@ export const useRegisterViewModel = () => {
   })
 
   // console.log(user)
+
+  useEffect(() => {
+    axios
+      .get('http://10.0.2.2:3001')
+      .then(() => console.log('API FUNCIONANDO ✔'))
+      .catch((err) => console.log('ERRO API ❌', err.message))
+  }, [])
 
   return { control, onSubmit, errors, handleSelectAvatar, avatarUri }
 }
