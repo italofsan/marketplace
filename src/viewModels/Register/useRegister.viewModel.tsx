@@ -60,5 +60,5 @@ export const useRegisterViewModel = () => {
 
   // console.log(user)
 
-  return { control, onSubmit, errors, handleSelectAvatar }
+  return { control, onSubmit, errors, handleSelectAvatar, avatarUri }
 }

@@ -15,7 +15,7 @@ export const AuthFormHeader = ({ title, subTitle }: AuthFormHeaderProps) => {
       />
 
       <Text className='text-3xl font-bold mb-3 text-gray-500'>{title}</Text>
-      <Text className='text-base text-gray-300'>{subTitle}</Text>
+      <Text className='text-base text-gray-300 text-center'>{subTitle}</Text>
     </View>
   )
 }
