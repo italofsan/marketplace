@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -15,7 +16,11 @@ export const useRegisterViewModel = () => {
   const userRegisterMutation = useRegisterMutation()
 
   const { setSession } = useUserStore()
-  const { handleSelectImage } = useImage()
+  const [avatarUri, setAvatarUri] = useState<string | null>(null)
+
+  const { handleSelectImage } = useImage({
+    callback: setAvatarUri,
+  })
 
   const handleSelectAvatar = () => {
     handleSelectImage()
