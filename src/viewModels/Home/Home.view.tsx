@@ -7,7 +7,10 @@ import { HomeHeader } from './components/Header'
 
 import { useHomeViewModel } from './useHome.viewModel'
 
-export const HomeView = ({ products }: ReturnType<typeof useHomeViewModel>) => {
+export const HomeView = ({
+  products,
+  handleEndReached,
+}: ReturnType<typeof useHomeViewModel>) => {
   return (
     <SafeAreaView edges={['top']} className='flex-1'>
       <FlatList
@@ -15,6 +18,7 @@ export const HomeView = ({ products }: ReturnType<typeof useHomeViewModel>) => {
         renderItem={({ item }) => <ProductCard product={item} />}
         keyExtractor={({ id }) => `product-list-item-${id}`}
         numColumns={2}
+        onEndReached={handleEndReached}
         columnWrapperStyle={{
           justifyContent: 'space-between',
         }}

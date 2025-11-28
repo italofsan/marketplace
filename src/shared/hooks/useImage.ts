@@ -20,6 +20,7 @@ export const useImage = ({ callback, ...pickerOptions }: UseImageParams) => {
 
   const handleCallback = (uri: string | null) => {
     close()
+    // @ts-ignore
     callback(uri)
   }
 
@@ -34,7 +35,7 @@ export const useImage = ({ callback, ...pickerOptions }: UseImageParams) => {
           variant: 'primary',
           onPress: async () => {
             const imageUri = await openGallery()
-            console.log(imageUri)
+            // console.log(imageUri)
             handleCallback(imageUri)
           },
         },
