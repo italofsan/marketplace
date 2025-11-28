@@ -32,7 +32,7 @@ export class MarketPlaceApiClient {
     this.instance.interceptors.request.use(
       async (config) => {
         const userData = await AsyncStorage.getItem('marketplace-auth')
-        console.log(userData)
+        // console.log(userData)
         if (userData) {
           const {
             state: { token },
@@ -55,7 +55,7 @@ export class MarketPlaceApiClient {
     this.instance.interceptors.response.use(
       (response) => response,
       async (error) => {
-        alert('CAIU NO REFRESH')
+        // alert('CAIU NO REFRESH')
         const originalRequest = error.config
 
         if (
