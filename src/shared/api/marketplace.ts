@@ -32,13 +32,10 @@ export class MarketPlaceApiClient {
     this.instance.interceptors.request.use(
       async (config) => {
         const userData = await AsyncStorage.getItem('marketplace-auth')
-        // console.log(userData)
         if (userData) {
           const {
             state: { token },
           } = JSON.parse(userData)
-
-          console.log(token)
 
           if (token) {
             config.headers.Authorization = `Bearer ${token}`
@@ -55,7 +52,7 @@ export class MarketPlaceApiClient {
     this.instance.interceptors.response.use(
       (response) => response,
       async (error) => {
-        // alert('CAIU NO REFRESH')
+        alert('CAIU NO REFRESH')
         const originalRequest = error.config
 
         if (
@@ -80,9 +77,12 @@ export class MarketPlaceApiClient {
               throw new Error('Refresh token não encontrado')
             }
 
-            const { data: response } = await axios.post('/auth/refresh', {
-              refreshToken,
-            })
+            const { data: response } = await this.instance.post(
+              '/auth/refresh',
+              {
+                refreshToken,
+              }
+            )
 
             const currentUserData = JSON.parse(userData)
 
@@ -96,7 +96,7 @@ export class MarketPlaceApiClient {
 
             originalRequest.headers.Authorization = `Bearer ${response.token}`
 
-            return axios(originalRequest)
+            return this.instance(originalRequest)
           } catch {
             this.handleUnauthorized()
             return Promise.reject(

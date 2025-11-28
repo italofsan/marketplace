@@ -1,5 +1,7 @@
-import { FlatList } from 'react-native'
+import { FlatList, RefreshControl } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+
+import { colors } from '../../styles/colors'
 
 import { SearchInput } from './components/SearchInput'
 import { ProductCard } from './components/ProductCard'
@@ -14,6 +16,8 @@ export const HomeView = ({
   isLoading,
   hasNextPage,
   isFetchingNextPage,
+  isRefetching,
+  handleRefresh,
 }: ReturnType<typeof useHomeViewModel>) => {
   return (
     <SafeAreaView edges={['top']} className='flex-1'>
@@ -38,6 +42,14 @@ export const HomeView = ({
           </>
         }
         contentContainerClassName='px-4 pb-[120px]'
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefetching}
+            colors={[colors['purple-base']]}
+            tintColor={colors['purple-base']}
+            onRefresh={handleRefresh}
+          />
+        }
       />
     </SafeAreaView>
   )

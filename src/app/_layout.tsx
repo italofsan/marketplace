@@ -10,7 +10,6 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name='login' />
         <Stack.Screen name='(public)' />
         <Stack.Screen name='(private)' />
       </Stack>
