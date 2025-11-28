@@ -65,12 +65,5 @@ export const useRegisterViewModel = () => {
 
   // console.log(user)
 
-  useEffect(() => {
-    axios
-      .get('http://10.0.2.2:3001')
-      .then(() => console.log('API FUNCIONANDO ✔'))
-      .catch((err) => console.log('ERRO API ❌', err.message))
-  }, [])
-
   return { control, onSubmit, errors, handleSelectAvatar, avatarUri }
 }

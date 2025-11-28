@@ -54,7 +54,7 @@ export const LoginView = ({
           <AppButton
             variant='outlined'
             rightIcon='arrow-forward'
-            onPress={() => router.push('/register')}
+            onPress={() => router.push('/(public)/register')}
           >
             Registro
           </AppButton>
