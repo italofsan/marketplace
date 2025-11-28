@@ -7,7 +7,7 @@ export const SearchInput = () => {
   return (
     <View className='mb-3 mt-6'>
       <Text className='text-2xl font-bold mt-6'>Explore Produtos</Text>
-      <View className='flex-row'>
+      <View className='flex-row items-center'>
         <View className='flex-1'>
           <AppInput
             leftIcon='search'
@@ -16,7 +16,7 @@ export const SearchInput = () => {
           />
         </View>
 
-        <TouchableOpacity className='ml-5 mt-6 items-center justify-center rounded-lg border h-[48px] w-[48px] border-purple-base'>
+        <TouchableOpacity className='ml-5 mt-6 items-center justify-center rounded-lg border size-[48px] border-purple-base'>
           <Ionicons
             name='filter-outline'
             size={24}
