@@ -6,7 +6,15 @@ import { AppInput } from '../../../../shared/components/AppInput'
 import { colors } from '../../../../styles/colors'
 import { Filter } from '../Filter'
 
-export const SearchInput = () => {
+interface SearchInputParams {
+  setSearchInputText: (text: string) => void
+  inputValue: string
+}
+
+export const SearchInput = ({
+  setSearchInputText,
+  inputValue,
+}: SearchInputParams) => {
   const { open } = useBottomSheetStore()
 
   return (
@@ -15,6 +23,8 @@ export const SearchInput = () => {
       <View className='flex-row items-center'>
         <View className='flex-1'>
           <AppInput
+            value={inputValue}
+            onChangeText={setSearchInputText}
             placeholder='Pesquisar'
             leftIcon='search'
             returnKeyType='search'
