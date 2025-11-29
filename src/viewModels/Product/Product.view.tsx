@@ -17,7 +17,7 @@ export const ProductView = ({
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView className='flex-1 bg-background'>
       <FlatList
         data={[]}
         renderItem={() => <></>}
