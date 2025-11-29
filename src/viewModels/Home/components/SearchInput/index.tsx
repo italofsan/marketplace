@@ -15,6 +15,7 @@ export const SearchInput = () => {
       <View className='flex-row items-center'>
         <View className='flex-1'>
           <AppInput
+            placeholder='Pesquisar'
             leftIcon='search'
             returnKeyType='search'
             className='text-lg flex-1'

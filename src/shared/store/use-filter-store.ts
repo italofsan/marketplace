@@ -15,6 +15,7 @@ interface FilterStore {
     value: string | number | number[]
   }) => void
   resetFilter: () => void
+  applyFilters: () => void
 }
 
 const defaultFilterValues = {
