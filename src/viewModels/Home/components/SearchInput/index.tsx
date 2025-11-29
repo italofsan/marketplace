@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { useBottomSheetStore } from '../../../../shared/store/bottomsheet-store'
 import { AppInput } from '../../../../shared/components/AppInput'
 import { colors } from '../../../../styles/colors'
+import { Filter } from '../Filter'
 
 export const SearchInput = () => {
   const { open } = useBottomSheetStore()
@@ -21,7 +22,7 @@ export const SearchInput = () => {
         </View>
 
         <TouchableOpacity
-          onPress={() => open({ content: <Text>Hello</Text> })}
+          onPress={() => open({ content: <Filter /> })}
           className='ml-5 mt-6 items-center justify-center rounded-lg border size-[48px] border-purple-base'
         >
           <Ionicons
