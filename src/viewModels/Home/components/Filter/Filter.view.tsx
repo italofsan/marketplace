@@ -7,7 +7,12 @@ import { colors } from '../../../../styles/colors'
 
 import { useFilterViewModel } from './useFilter.viewModel'
 
-export const FilterView = ({}: ReturnType<typeof useFilterViewModel>) => {
+export const FilterView = ({
+  productCategories,
+  isLoading,
+}: ReturnType<typeof useFilterViewModel>) => {
+  console.log(productCategories)
+
   return (
     <View>
       <View className='flex-row items-center justify-between py-4 px-6'>
