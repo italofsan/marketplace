@@ -9,7 +9,7 @@ import { Header } from './components/Header'
 
 import { useProductViewModel } from './useProduct.viewModel'
 import { ProductError } from './components/Error'
-import { AddToCardFooter } from './components/AddToCardFooter'
+import { AddToCartFooter } from './components/AddToCartFooter'
 
 export const ProductView = ({
   isLoading,
@@ -44,7 +44,7 @@ export const ProductView = ({
         ListEmptyComponent={<EmptyList isLoadingComments={isLoadingComments} />}
         contentContainerClassName='pb-6'
       />
-      <AddToCardFooter product={productDetails} />
+      <AddToCartFooter product={productDetails} />
     </SafeAreaView>
   )
 }
