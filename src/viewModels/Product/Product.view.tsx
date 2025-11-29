@@ -24,6 +24,7 @@ export const ProductView = ({
   isRefetching,
   isFetchingNextPage,
   handleAddToCart,
+  handleOpenReviewBottomSheet,
 }: ReturnType<typeof useProductViewModel>) => {
   if (error) return <ProductError />
 
@@ -34,7 +35,12 @@ export const ProductView = ({
       <FlatList
         data={comments}
         renderItem={({ item }) => <CommentItem comment={item} />}
-        ListHeaderComponent={() => <Header productDetails={productDetails} />}
+        ListHeaderComponent={() => (
+          <Header
+            onOpenReviewBottomSheet={handleOpenReviewBottomSheet}
+            productDetails={productDetails}
+          />
+        )}
         className='px-6'
         onEndReached={handleEndReached}
         onRefresh={handleRefetch}
