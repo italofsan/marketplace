@@ -29,7 +29,7 @@ export const useProductViewModel = (productId: number) => {
   } = useGetProductCommentsInfiniteQuery(productId)
 
   const { addProduct, products } = useCartStore()
-  console.log(products)
+  // console.log(products)
 
   const { open, close } = useModalStore()
   const { open: openBottomSheet } = useBottomSheetStore()

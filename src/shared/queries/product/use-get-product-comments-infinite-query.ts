@@ -28,8 +28,8 @@ export const useGetProductCommentsInfiniteQuery = (productId: number) => {
         ...comment,
         user: {
           ...comment.user,
-          url: buildImageUrl(comment.user.avatar?.url ?? '') ?? '',
-          // avatar: buildImageUrl(comment.user.avatar?.url ?? ''),
+          // url: buildImageUrl(comment.user.avatar?.url ?? '') ?? '',
+          avatar: buildImageUrl(comment.user.avatar?.url ?? ''),
         },
       })) as ProductComment[]) ?? []
 
