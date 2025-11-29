@@ -8,6 +8,7 @@ import { Loading } from './components/Loading'
 import { Header } from './components/Header'
 
 import { useProductViewModel } from './useProduct.viewModel'
+import { ProductError } from './components/Error'
 
 export const ProductView = ({
   isLoading,
@@ -24,17 +25,9 @@ export const ProductView = ({
 }: ReturnType<typeof useProductViewModel>) => {
   console.log(comments)
 
-  if (error) {
-    return <Text>Houve um erro ao carregar os detalhes do produto</Text>
-  }
+  if (error) return <ProductError />
 
-  if (!productDetails) {
-    return null
-  }
-
-  if (isLoading) {
-    return <Loading />
-  }
+  if (isLoading || !productDetails) return <Loading />
 
   return (
     <SafeAreaView className='flex-1 bg-background'>
