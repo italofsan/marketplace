@@ -1,4 +1,5 @@
 import { Text, TouchableOpacity, View, Image } from 'react-native'
+import { router } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
 
 import { colors } from '../../../../styles/colors'
@@ -11,7 +12,10 @@ export const ProductCardView = ({
   formatRating,
 }: ReturnType<typeof useProductCardViewModel>) => {
   return (
-    <TouchableOpacity className='w-[48%] my-1 rounded-xl shadow-sm overflow-hidden h-[157px] p-[4px] bg-white mb-2'>
+    <TouchableOpacity
+      onPress={() => router.push(`/product/${product.id}`)}
+      className='w-[48%] my-1 rounded-xl shadow-sm overflow-hidden h-[157px] p-[4px] bg-white mb-2'
+    >
       <View>
         <Image
           // @ts-ignore
