@@ -1,7 +1,7 @@
 import { Redirect, Stack } from 'expo-router'
 
 import { AppBottomSheet } from '../../shared/components/AppBottomSheet'
-import { useUserStore } from '../../shared/store/userStore'
+import { useUserStore } from '../../shared/store/user-store'
 
 export default function PrivateLayout() {
   const { user, token } = useUserStore()

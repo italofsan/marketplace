@@ -1,5 +1,5 @@
 import { Redirect, Stack } from 'expo-router'
-import { useUserStore } from '../../shared/store/userStore'
+import { useUserStore } from '../../shared/store/user-store'
 
 export default function PublicLayout() {
   const { user, token } = useUserStore()

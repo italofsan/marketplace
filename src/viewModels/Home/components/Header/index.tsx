@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
-import { useUserStore } from '../../../../shared/store/userStore'
+import { useUserStore } from '../../../../shared/store/user-store'
 import { colors } from '../../../../styles/colors'
 
 export const HomeHeader = () => {

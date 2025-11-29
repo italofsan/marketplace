@@ -10,7 +10,7 @@ import { useImage } from '../../shared/hooks/useImage'
 
 import { useUploadAvatarMutation } from '../../shared/queries/auth/use-upload-avatar.mutation'
 import { useRegisterMutation } from '../../shared/queries/auth/use-register.mutation'
-import { useUserStore } from '../../shared/store/userStore'
+import { useUserStore } from '../../shared/store/user-store'
 
 import { RegisterFormData, registerScheme } from './register.scheme'
 import axios from 'axios'

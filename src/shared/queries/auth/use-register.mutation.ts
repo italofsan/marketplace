@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query'
 import { AuthResponse } from '../../interfaces/http/auth-response'
 import { RegisterHttpParams } from '../../interfaces/http/register'
 import { register } from '../../services/auth.service'
-import { useUserStore } from '../../store/userStore'
+import { useUserStore } from '../../store/user-store'
 
 interface UseRegisterMutationParams {
   onSuccess?: () => void
