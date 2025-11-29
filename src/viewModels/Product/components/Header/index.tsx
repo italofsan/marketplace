@@ -12,7 +12,7 @@ interface HeaderParams {
 }
 
 export const Header = ({ productDetails }: HeaderParams) => {
-  console.log({ productDetails })
+  //   console.log({ productDetails })
 
   return (
     <>
