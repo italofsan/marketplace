@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { colors } from '../../../../styles/colors'
 
 import { useProductCardViewModel } from './useProductCard.viewModel'
+import { AppPriceText } from '../../../../shared/components/AppPriceText'
 
 export const ProductCardView = ({
   product,
@@ -28,7 +29,11 @@ export const ProductCardView = ({
           {product.name}
         </Text>
         <View className='flex-row items-center justify-between'>
-          <Text>R$ {product.value}</Text>
+          <AppPriceText
+            classNameCurrency='text-sm'
+            classNameValue='text-lg font-bold flex-1'
+            value={Number(product.value)}
+          />
         </View>
       </View>
     </TouchableOpacity>
