@@ -9,6 +9,7 @@ import { Header } from './components/Header'
 
 import { useProductViewModel } from './useProduct.viewModel'
 import { ProductError } from './components/Error'
+import { AddToCardFooter } from './components/AddToCardFooter'
 
 export const ProductView = ({
   isLoading,
@@ -23,14 +24,12 @@ export const ProductView = ({
   isRefetching,
   isFetchingNextPage,
 }: ReturnType<typeof useProductViewModel>) => {
-  console.log(comments)
-
   if (error) return <ProductError />
 
   if (isLoading || !productDetails) return <Loading />
 
   return (
-    <SafeAreaView className='flex-1 bg-background'>
+    <SafeAreaView edges={['top']} className='flex-1 bg-background'>
       <FlatList
         data={comments}
         renderItem={({ item }) => <CommentItem comment={item} />}
@@ -43,7 +42,9 @@ export const ProductView = ({
           <ListFooter isLoadingMore={isFetchingNextPage} />
         )}
         ListEmptyComponent={<EmptyList isLoadingComments={isLoadingComments} />}
+        contentContainerClassName='pb-6'
       />
+      <AddToCardFooter product={productDetails} />
     </SafeAreaView>
   )
 }
