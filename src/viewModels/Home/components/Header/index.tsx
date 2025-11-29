@@ -12,7 +12,7 @@ export const HomeHeader = () => {
         <View className='relative'>
           {user?.avatarUrl ? (
             <Image
-              source={{ uri: user?.avatarUrl }}
+              source={{ uri: `http://10.0.2.2:3001${user?.avatarUrl}` }}
               className='size-[56px] rounded-xl border-shape'
             />
           ) : (
