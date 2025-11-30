@@ -5,14 +5,18 @@ import { colors } from '../../../../../../styles/colors'
 
 interface StarsParams {
   rating: number
+  onChangeRating: (rating: number) => void
 }
 
-export const Stars = ({ rating }: StarsParams) => {
+export const Stars = ({ rating, onChangeRating }: StarsParams) => {
   return Array.from({ length: 5 }, (_, index) => {
     const starNumber = index + 1
     const isSelected = starNumber <= rating
     return (
-      <TouchableOpacity key={`star-${index}`} onPress={() => {}}>
+      <TouchableOpacity
+        key={`star-${index}`}
+        onPress={() => onChangeRating(starNumber)}
+      >
         <Ionicons
           name={isSelected ? 'star' : 'star-outline'}
           size={32}
