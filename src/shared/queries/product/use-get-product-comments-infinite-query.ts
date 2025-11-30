@@ -24,14 +24,19 @@ export const useGetProductCommentsInfiniteQuery = (productId: number) => {
     //   @ts-ignore
     (query.data?.pages
       .flatMap((page) => page.data)
-      .map((comment) => ({
-        ...comment,
-        user: {
-          ...comment.user,
-          // url: buildImageUrl(comment.user.avatar?.url ?? '') ?? '',
-          avatar: buildImageUrl(comment.user.avatar?.url ?? ''),
-        },
-      })) as ProductComment[]) ?? []
+      .map((comment) => {
+        return {
+          ...comment,
+          user: {
+            ...comment.user,
+
+            avatar:
+              comment.user.avatar?.url !== 'localhost:3001/assets/avatars/'
+                ? buildImageUrl(comment.user.avatar.url)
+                : undefined,
+          },
+        }
+      }) as ProductComment[]) ?? []
 
   return {
     ...query,

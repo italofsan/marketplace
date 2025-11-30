@@ -19,11 +19,14 @@ export const CommentItem = ({ comment }: CommentItemParams) => {
       <View className='flex-row items-center justify-between mb-3'>
         <View className='flex-row items-center flex-1'>
           <View className='size-8 rounded-[6px] overflow-hidden bg-gray-200 mr-3'>
-            {comment.user.avatar.url && comment.user.avatar.url !== '' ? (
+            {/* @ts-ignore */}
+            {comment.user.avatar && comment.user.avatar !== '' ? (
               <Image
                 className='w-full h-full'
                 resizeMode='cover'
-                source={{ uri: comment.user.avatar.url }}
+                source={{
+                  uri: `http://10.0.2.2:3001${comment.user.avatar}`,
+                }}
               />
             ) : (
               <View className='w-full h-full items-center justify-center'>

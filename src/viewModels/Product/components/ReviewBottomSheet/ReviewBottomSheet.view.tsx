@@ -14,6 +14,7 @@ export const ReviewBottomSheetView = ({
   ratingForm,
   handleFormSubmit,
   isLoading,
+  closeBottomSheet,
 }: ReturnType<typeof useReviewBottomSheetViewModel>) => {
   return (
     <View className='bg-background rounded-t-2xl'>
@@ -21,7 +22,10 @@ export const ReviewBottomSheetView = ({
         <Text className='text-lg font-bold text-gray-900'>
           {ratingForm.isEditing ? 'Editar avaliação' : 'Avaliar produto'}
         </Text>
-        <TouchableOpacity className='size-8 items-center justify-center rounded-[10px] border border-gray-400'>
+        <TouchableOpacity
+          className='size-8 items-center justify-center rounded-[10px] border border-gray-400'
+          onPress={closeBottomSheet}
+        >
           <Ionicons name='close' size={24} color={colors.gray[400]} />
         </TouchableOpacity>
       </View>
@@ -56,7 +60,7 @@ export const ReviewBottomSheetView = ({
             numberOfLines={8}
             textAlign='left'
             containerClassName='mb-8'
-            className='h-[150px]'
+            // className='h-[150px]'
           />
 
           <View className='flex-row gap-3 mb-6'>
