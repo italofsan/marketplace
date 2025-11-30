@@ -19,7 +19,7 @@ export const useCreateCommentMutation = (productId: number) => {
     onError: (error) => {
       Toast.error(
         error.message ??
-          'Erro ao enviar avaliação, tente novamente em instantes.',
+          'Erro ao enviar avaliação, tente novamente em instantes.'
       )
     },
   })
