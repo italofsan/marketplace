@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 import { AppButton } from '../../../../shared/components/AppButton'
@@ -12,6 +12,8 @@ export const ReviewBottomSheetView = ({
   handleContentChange,
   handleRatingChange,
   ratingForm,
+  handleFormSubmit,
+  isLoading,
 }: ReturnType<typeof useReviewBottomSheetViewModel>) => {
   return (
     <View className='bg-background rounded-t-2xl'>
@@ -24,39 +26,49 @@ export const ReviewBottomSheetView = ({
         </TouchableOpacity>
       </View>
 
-      <View className='p-6'>
-        <Text className='font-semibold text-base text-gray-300'>Nota</Text>
-        <View className='flex-row items-center mb-6 gap-2'>
-          <Stars
-            rating={ratingForm.rating}
-            onChangeRating={handleRatingChange}
+      {isLoading ? (
+        <View className='p-6 items-center justify-center min-h-[300px]'>
+          <ActivityIndicator size='large' color={colors['purple-base']} />
+          <Text className='text-center text-gray-600 mt-4'>
+            Verificando avaliação existente...
+          </Text>
+        </View>
+      ) : (
+        <View className='p-6'>
+          <Text className='font-semibold text-base text-gray-300'>Nota</Text>
+          <View className='flex-row items-center mb-6 gap-2'>
+            <Stars
+              rating={ratingForm.rating}
+              onChangeRating={handleRatingChange}
+            />
+          </View>
+
+          <AppInput
+            onChangeText={handleContentChange}
+            label='COMENTÁRIO'
+            placeholder={
+              ratingForm.isEditing
+                ? 'Edite sua avaliação'
+                : 'Escreva sua avaliação'
+            }
+            value={ratingForm.content}
+            multiline
+            numberOfLines={8}
+            textAlign='left'
+            containerClassName='mb-8'
+            className='h-[150px]'
           />
-        </View>
 
-        <AppInput
-          label='COMENTÁRIO'
-          placeholder={
-            ratingForm.isEditing
-              ? 'Edite sua avaliação'
-              : 'Escreva sua avaliação'
-          }
-          value={ratingForm.content}
-          multiline
-          numberOfLines={8}
-          textAlign='left'
-          containerClassName='mb-8'
-          className='h-[150px]'
-        />
-
-        <View className='flex-row gap-3 mb-6'>
-          <AppButton variant='outlined' className='flex-1' onPress={() => {}}>
-            Cancelar
-          </AppButton>
-          <AppButton className='flex-1' onPress={() => {}}>
-            {ratingForm.isEditing ? 'Atualizar' : 'Enviar'}
-          </AppButton>
+          <View className='flex-row gap-3 mb-6'>
+            <AppButton variant='outlined' className='flex-1' onPress={() => {}}>
+              Cancelar
+            </AppButton>
+            <AppButton className='flex-1' onPress={handleFormSubmit}>
+              {ratingForm.isEditing ? 'Atualizar' : 'Enviar'}
+            </AppButton>
+          </View>
         </View>
-      </View>
+      )}
     </View>
   )
 }
